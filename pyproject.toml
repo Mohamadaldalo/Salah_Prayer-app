@@ -1,0 +1,44 @@
+[project]
+name        = "salah-reminder"
+version     = "1.0.0"
+description = "Salah prayer reminder app"
+requires-python = ">=3.9"
+
+dependencies = [
+    "flet",
+    "flet-audio",
+]
+
+# ─── Flet settings ───────────────────────────────────────────────────────────
+
+[tool.flet]
+name        = "salah_reminder"
+org         = "com.mohammad"
+product     = "Salah Reminder"
+description = "Salah prayer reminder app"
+
+[tool.flet.app]
+icon = "assets/icon.png"
+
+[tool.flet.app.fonts]
+AmiriQuran = "assets/AmiriQuran.ttf"
+
+[tool.flet.flutter]
+dependencies = ["flet_audio"]
+
+# ─── Android build ───────────────────────────────────────────────────────────
+
+[tool.flet.android]
+# android-notify 1.60.10.dev0 does NOT need gradle_dependencies
+dependencies = [
+    "pyjnius",
+    "android-notify==1.60.10.dev0",
+]
+
+permissions = [
+    "android.permission.INTERNET",
+    "android.permission.RECEIVE_BOOT_COMPLETED",
+    "android.permission.VIBRATE",
+    "android.permission.POST_NOTIFICATIONS",
+    "android.permission.WAKE_LOCK",
+]
